@@ -1,0 +1,4 @@
+{
+	"S3UserfilesBucketName": "safariphotobucket-master",
+	"DynamoDBPhotosTableArn": "arn:aws:dynamodb:us-east-1:018318996315:table/Photo-pdrcy37djvgv7cpv6wn5n2qnny-master"
+}
