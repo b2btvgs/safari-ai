@@ -10,6 +10,7 @@ import { Connect, S3Image, withAuthenticator } from 'aws-amplify-react';
 import Amplify, { API, Auth, graphqlOperation, Storage } from 'aws-amplify';
 
 import aws_exports from './aws-exports';
+import "./App.css";
 Amplify.configure(aws_exports);
 
 function makeComparator(key, order='asc') {
