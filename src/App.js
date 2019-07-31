@@ -457,9 +457,10 @@ class App extends Component {
       <Router>
         <Grid padded>
           <Grid.Column>
-            <Route path="/" exact component={NewAlbum}/>
-            <Route path="/" exact component={AlbumsListLoader}/>
+            
             <Route path="/" exact component={Search}/>
+            <Route path="/" exact component={AlbumsListLoader}/>
+            <Route path="/" exact component={NewAlbum}/>
 
             <Route
               path="/albums/:albumId"
