@@ -1,6 +1,17 @@
 body{
  background-image: url("images/SafariElephants.jpg");
+  background-repeat: no-repeat;
 }
+
+div {
+  background: transparent;
+}
+
+div .ui .segment {
+  background: transparent;
+}
+
+
 
 .App {
   text-align: center;
