@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { S3Image } from "aws-amplify-react";
-import {
-  Container,
-  Header,
-  Input,
-  List,
-  Modal,
-  Segment
-} from "semantic-ui-react";
+import { Container, Modal } from "semantic-ui-react";
 
 class Lightbox extends Component {
   render() {

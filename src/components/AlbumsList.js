@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Header, Input, List, Modal, Segment } from "semantic-ui-react";
+import { Header, List, Segment } from "semantic-ui-react";
 
 function makeComparator(key, order = "asc") {
   return (a, b) => {
@@ -17,7 +17,7 @@ function makeComparator(key, order = "asc") {
   };
 }
 
-class AlbumsList extends React.Component {
+class AlbumsList extends Component {
   albumItems() {
     return this.props.albums.sort(makeComparator("name")).map(album => (
       <List.Item key={album.id}>

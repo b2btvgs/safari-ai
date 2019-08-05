@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 import { Header, Input, Segment } from "semantic-ui-react";
 import PhotosList from "./PhotosList";
 
@@ -22,7 +22,7 @@ const SearchPhotos = `query SearchPhotos($label: String!) {
   }
 }`;
 
-class Search extends React.Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
