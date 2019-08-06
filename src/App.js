@@ -11,21 +11,33 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Header, Grid, Segment } from "semantic-ui-react";
 
 import Amplify from "aws-amplify";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+// import { Nav, Navbar, NavItem } from "react-bootstrap";
 import aws_exports from "./aws-exports";
 import Search from "./components/Search";
 import AlbumsListLoader from "./components/AlbumsListLoader";
 import NewAlbum from "./components/NewAlbum";
 import AlbumDetailsLoader from "./components/AlbumDetailsLoader";
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+// import Theme from "./layout/Theme";
 import Routes from "./Routes";
+import Navbar from "./layout/Navbar";
 import "./App.css";
 Amplify.configure(aws_exports);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isAuthenticated: false,
+      isAuthenticating: true
+    };
+  }
+
   async componentDidMount() {
     try {
       console.log("componentDidMount initiated");
-      await Auth.currentSession();
+      // await Auth.currentSession();
 
       this.userHasAuthenticated(true);
     } catch (e) {
@@ -50,10 +62,10 @@ class App extends Component {
 
     return (
       <div className="App container">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Brand>{/* <Link to="/">Scratch></Link> */}</Navbar.Brand>
-        </Navbar>
+        {/* <MuiThemeProvider theme={Theme}> */}
+        <Navbar />
         <Routes childProps={childProps} />
+        {/* </MuiThemeProvider> */}
       </div>
     );
   }

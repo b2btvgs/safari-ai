@@ -1,6 +1,6 @@
 body {
   background-image: url("images/SafariElephants.jpg");
-  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 div {
@@ -9,6 +9,8 @@ div {
 
 div .ui .segment {
   background: transparent;
+  border-width: 0px;
+  box-shadow: 0 0 0 0;
 }
 
 /* .App {
@@ -16,7 +18,7 @@ div .ui .segment {
 } */
 
 .App {
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 .App-logo {

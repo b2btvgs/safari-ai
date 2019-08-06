@@ -1,14 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { API } from "aws-amplify";
-import {
-  BrowserRouter as Router,
-  Link,
-  NavLink,
-  Route
-} from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
-import { Header, Grid, Segment } from "semantic-ui-react";
+// import { API } from "aws-amplify";
+import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
+import { Grid } from "semantic-ui-react";
 import Search from "./Search";
 import AlbumsListLoader from "./AlbumsListLoader";
 import NewAlbum from "./NewAlbum";
@@ -16,17 +9,6 @@ import AlbumDetailsLoader from "./AlbumDetailsLoader";
 import "./Home.css";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoading: true,
-      isAuthenticated: false,
-      isAuthenticating: true,
-      notes: []
-    };
-  }
-
   async componentDidMount() {
     if (!this.props.isAuthenticated) {
       return;

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { Header, Input, Segment } from "semantic-ui-react";
+import TextField from "@material-ui/core/TextField";
 import PhotosList from "./PhotosList";
+import "./Search.css";
 
 const SearchPhotos = `query SearchPhotos($label: String!) {
   searchPhotos(filter: { labels: { match: $label }}) {
@@ -76,6 +78,7 @@ class Search extends Component {
           name="label"
           value={this.state.label}
           onChange={this.updateLabel}
+          className="home-input"
         />
         {this.state.hasResults ? (
           <PhotosList photos={this.state.searchResults.photos} />
