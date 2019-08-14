@@ -3,7 +3,7 @@ import { S3Image } from "aws-amplify-react";
 import { Divider } from "semantic-ui-react";
 import Lightbox from "./Lightbox";
 
-class PhotosList extends React.Component {
+class PhotosList extends Component {
   constructor(props) {
     super(props);
     this.state = {

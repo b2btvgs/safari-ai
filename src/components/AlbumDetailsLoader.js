@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Amplify, { API, Auth, graphqlOperation, Storage } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 import AlbumDetails from "./AlbumDetails";
 
 const GetAlbum = `query GetAlbum($id: ID!, $nextTokenForPhotos: String) {
@@ -25,7 +25,7 @@ const GetAlbum = `query GetAlbum($id: ID!, $nextTokenForPhotos: String) {
 }
 `;
 
-class AlbumDetailsLoader extends React.Component {
+class AlbumDetailsLoader extends Component {
   constructor(props) {
     super(props);
 
@@ -41,9 +41,11 @@ class AlbumDetailsLoader extends React.Component {
     if (!this.state.hasMorePhotos) return;
 
     this.setState({ loading: true });
+    console.log("in AlbumDetails - id is: " + JSON.stringify(this.props));
+    // console.log("props.is is: " + this.props.id);
     const { data } = await API.graphql(
       graphqlOperation(GetAlbum, {
-        id: this.props.id,
+        id: this.props.match.params.albumId,
         nextTokenForPhotos: this.state.nextTokenForPhotos
       })
     );
@@ -66,6 +68,7 @@ class AlbumDetailsLoader extends React.Component {
   }
 
   componentDidMount() {
+    console.log("this.props.id is: " + JSON.stringify(this.props.id));
     this.loadMorePhotos();
   }
 

@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { Auth, Storage } from "aws-amplify";
 import { Form } from "semantic-ui-react";
 
-class S3ImageUpload extends React.Component {
+class S3ImageUpload extends Component {
   constructor(props) {
     super(props);
     this.state = { uploading: false };

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Connect } from "aws-amplify-react";
-import Amplify, { graphqlOperation } from "aws-amplify";
+import { graphqlOperation } from "aws-amplify";
 import AlbumsList from "./AlbumsList";
-import NewAlbum from "./NewAlbum";
 
 const ListAlbums = `query ListAlbums {
     listAlbums(limit: 9999) {
@@ -22,7 +21,7 @@ const SubscribeToNewAlbums = `
   }
 `;
 
-class AlbumsListLoader extends React.Component {
+class AlbumsListLoader extends Component {
   onNewAlbum = (prevQuery, newData) => {
     // When we get data about a new album, we need to put in into an object
     // with the same shape as the original query results, but with the new data added as well
@@ -35,6 +34,7 @@ class AlbumsListLoader extends React.Component {
 
   render() {
     return (
+      // <h1>List of Albums goes here</h1>
       <Connect
         query={graphqlOperation(ListAlbums)}
         subscription={graphqlOperation(SubscribeToNewAlbums)}
@@ -44,7 +44,7 @@ class AlbumsListLoader extends React.Component {
           if (loading) {
             return <div>Loading...</div>;
           }
-          if (errors.length > 0) {
+          if (errors && errors.length > 0) {
             return <div>{JSON.stringify(errors)}</div>;
           }
           if (!data.listAlbums) return;

@@ -1,0 +1,27 @@
+{
+  "history": {
+    "length": 7,
+    "action": "PUSH",
+    "location": {
+      "pathname": "/albums/99c8c5d0-d99e-4fbc-b658-f85b6e741675",
+      "search": "",
+      "hash": "",
+      "key": "v1zooy"
+    }
+  },
+  "location": {
+    "pathname": "/albums/99c8c5d0-d99e-4fbc-b658-f85b6e741675",
+    "search": "",
+    "hash": "",
+    "key": "v1zooy"
+  },
+  "match": {
+    "path": "/albums/:albumId",
+    "url": "/albums/99c8c5d0-d99e-4fbc-b658-f85b6e741675",
+    "isExact": true,
+    "params": {
+      "albumId": "99c8c5d0-d99e-4fbc-b658-f85b6e741675"
+    }
+  },
+  "isAuthenticated": true
+}

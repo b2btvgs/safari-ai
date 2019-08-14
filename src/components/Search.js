@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 import { Header, Input, Segment } from "semantic-ui-react";
+import TextField from "@material-ui/core/TextField";
 import PhotosList from "./PhotosList";
+import "./Search.css";
 
 const SearchPhotos = `query SearchPhotos($label: String!) {
   searchPhotos(filter: { labels: { match: $label }}) {
@@ -22,7 +24,7 @@ const SearchPhotos = `query SearchPhotos($label: String!) {
   }
 }`;
 
-class Search extends React.Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,6 +41,7 @@ class Search extends React.Component {
   };
 
   getPhotosForLabel = async e => {
+    console.log("initiating getPhotosForLabel");
     const result = await API.graphql(
       graphqlOperation(SearchPhotos, { label: this.state.label })
     );
@@ -76,6 +79,7 @@ class Search extends React.Component {
           name="label"
           value={this.state.label}
           onChange={this.updateLabel}
+          className="home-input"
         />
         {this.state.hasResults ? (
           <PhotosList photos={this.state.searchResults.photos} />

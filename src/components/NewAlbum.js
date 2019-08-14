@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
-import { Header, Input, Modal, Segment } from "semantic-ui-react";
+import { API, graphqlOperation } from "aws-amplify";
+import { Header, Input, Segment } from "semantic-ui-react";
 
 class NewAlbum extends Component {
   constructor(props) {
