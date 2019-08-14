@@ -1,0 +1,42 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  background: rgb(229, 229, 155);
+  color: green;
+  /* background-image: url("./MrLeopard.jpg"); */
+}
+
+.nav .menu-bar {
+  width: 100%;
+  text-align: right;
+  /* box-shadow: 1px 2px 4px grey; */
+  background: rgba(2, 2, 2, 0.2);
+}
+
+.menu-bar li {
+  list-style-type: none;
+  display: inline-block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 0px 20px;
+  font-size: 20px;
+  font-family: sans-serif;
+  cursor: pointer;
+  /* font-weight: bold; */
+}
+
+.menu-bar li:hover {
+  background: green;
+  color: white;
+}
+
+.menu-bar a {
+  color: rgb(87, 27, 20);
+}

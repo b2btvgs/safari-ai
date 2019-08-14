@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { BrowserRouter as Router } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -24,23 +26,27 @@ const Navbar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Safari AI
-          </Typography>
-          <Button color="inherit">Signup</Button>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+      <Router>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              Safari AI
+            </Typography>
+            <Button color="inherit">Signup</Button>
+            <LinkContainer to="/login">
+              <Button color="inherit">Login</Button>
+            </LinkContainer>
+          </Toolbar>
+        </AppBar>
+      </Router>
     </div>
   );
 };

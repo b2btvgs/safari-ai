@@ -41,6 +41,7 @@ class Search extends Component {
   };
 
   getPhotosForLabel = async e => {
+    console.log("initiating getPhotosForLabel");
     const result = await API.graphql(
       graphqlOperation(SearchPhotos, { label: this.state.label })
     );

@@ -9,8 +9,18 @@ import AlbumDetailsLoader from "./AlbumDetailsLoader";
 import "./Home.css";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: true
+    };
+  }
+
   async componentDidMount() {
+    console.log("initiating Home componentDidMount");
+    console.log("this.props.isAuthenticated is: " + this.props.isAuthenticated);
     if (!this.props.isAuthenticated) {
+      console.log("failed - am returning now");
       return;
     }
 
@@ -26,14 +36,6 @@ class Home extends Component {
             <AlbumsListLoader />
             <NewAlbum />
           </Grid.Column>
-          <Route
-            path="/albums/:albumId"
-            render={() => (
-              <div>
-                <NavLink to="/">Back to Albums list</NavLink>
-              </div>
-            )}
-          />
           <Route
             path="/albums/:albumId"
             render={props => (
@@ -52,7 +54,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        {this.props.isAuthenticated ? this.renderNotes() : this.renderLander()}
+        {this.state.isAuthenticated ? this.renderNotes() : this.renderLander()}
       </div>
     );
   }

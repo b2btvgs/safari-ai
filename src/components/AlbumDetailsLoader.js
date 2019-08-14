@@ -45,7 +45,7 @@ class AlbumDetailsLoader extends Component {
     // console.log("props.is is: " + this.props.id);
     const { data } = await API.graphql(
       graphqlOperation(GetAlbum, {
-        id: this.props.id,
+        id: this.props.match.params.albumId,
         nextTokenForPhotos: this.state.nextTokenForPhotos
       })
     );
@@ -68,6 +68,7 @@ class AlbumDetailsLoader extends Component {
   }
 
   componentDidMount() {
+    console.log("this.props.id is: " + JSON.stringify(this.props.id));
     this.loadMorePhotos();
   }
 

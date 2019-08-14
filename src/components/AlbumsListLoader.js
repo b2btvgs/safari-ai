@@ -34,6 +34,7 @@ class AlbumsListLoader extends Component {
 
   render() {
     return (
+      // <h1>List of Albums goes here</h1>
       <Connect
         query={graphqlOperation(ListAlbums)}
         subscription={graphqlOperation(SubscribeToNewAlbums)}
@@ -43,7 +44,7 @@ class AlbumsListLoader extends Component {
           if (loading) {
             return <div>Loading...</div>;
           }
-          if (errors.length > 0) {
+          if (errors && errors.length > 0) {
             return <div>{JSON.stringify(errors)}</div>;
           }
           if (!data.listAlbums) return;
